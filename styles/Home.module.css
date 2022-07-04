@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  background-color: "#111827";
 }
 
 .main {
@@ -19,35 +20,6 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0d76fc;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 3rem 0;
-  line-height: 1;
-  font-size: 2.5rem;
-}
-
-.title,
-.description {
-  text-align: center;
 }
 
 .description {
