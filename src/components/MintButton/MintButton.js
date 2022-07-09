@@ -7,7 +7,7 @@ const MintButton = () => {
   const { data: address } = useAccount();
   const { data: signer } = useSigner();
   const contract = useContract({
-    addressOrName: "0x1e9A06ec825cf8A7341D344B1f2F2F0386542Ca3",
+    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
     contractInterface: abi,
     signerOrProvider: signer,
   });
