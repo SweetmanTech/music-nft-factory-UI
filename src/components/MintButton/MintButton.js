@@ -7,7 +7,7 @@ const MintButton = () => {
   const { data: address } = useAccount();
   const { data: signer } = useSigner();
   const contract = useContract({
-    addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    addressOrName: process.env.NEXT_PUBLIC_FACTORY_ADDRESS,
     contractInterface: abi,
     signerOrProvider: signer,
   });
@@ -19,10 +19,10 @@ const MintButton = () => {
     }
 
     contract
-      .claim()
+      .createMusicNft("music nft factory", "music")
       .then(async (tx) => {
         const receipt = await tx.wait();
-        toast.success("Minted CXY");
+        toast.success("minted music nft");
       })
       .catch((error) => {
         toast.error(error?.reason || error.message);
