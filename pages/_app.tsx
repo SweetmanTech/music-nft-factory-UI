@@ -11,9 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const { chains, provider, webSocketProvider } = configureChains(
   [
     chain.polygon,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true'
-      ? [chain.polygonMumbai]
-      : []),
+    chain.polygonMumbai
   ],
   [
     alchemyProvider({
