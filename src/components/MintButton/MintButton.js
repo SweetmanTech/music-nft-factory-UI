@@ -6,11 +6,11 @@ import abi from "./abi.json";
 const MintButton = () => {
   const { data: address } = useAccount();
   const { data: signer } = useSigner();
-  // const contract = useContract({
-  //   addressOrName: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
-  //   contractInterface: abi,
-  //   signerOrProvider: signer,
-  // });
+  const contract = useContract({
+    addressOrName: process.env.NEXT_PUBLIC_FACTORY_ADDRESS,
+    contractInterface: abi,
+    signerOrProvider: signer,
+  });
 
   const handleClick = () => {
     if (!address) {
@@ -18,15 +18,15 @@ const MintButton = () => {
       return;
     }
 
-    // contract
-    //   .claim()
-    //   .then(async (tx) => {
-    //     const receipt = await tx.wait();
-    //     toast.success("Minted CXY");
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error?.reason || error.message);
-    //   });
+    contract
+      .createMusicNft("music nft factory", "music")
+      .then(async (tx) => {
+        const receipt = await tx.wait();
+        toast.success("minted music nft");
+      })
+      .catch((error) => {
+        toast.error(error?.reason || error.message);
+      });
   };
 
   return (
